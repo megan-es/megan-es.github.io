@@ -11,7 +11,7 @@ const skillCategories = [
     skills: ["Python", "R", "SQL", "Jupyter Notebooks", "Git"]
   },
   {
-    category: "Business Intelligence Tools",
+    category: "Business Intelligence",
     skills: ["Tableau", "Power BI", "Dashboard Design", "Data Visualization"]
   },
   {
@@ -37,15 +37,18 @@ const experiences = [
 // Education details
 const education = [
   {
-    degree: "Master of Science in Business Analytics",
+    degree: "Master of Science",
+    major: "Business Analytics",
     school: "University of Washington"
   },
   {
     degree: "Master of Education",
+    major: "Learning, Teaching & Leadership",
     school: "University of Puget Sound"
   },
   {
     degree: "Bachelor of Science",
+    major: "Dual Degrees in Music and Political Science",
     school: "University of Oregon"
   }
 ];
@@ -76,7 +79,7 @@ const About = () => {
           <h2 className="text-5xl font-bold text-primary mb-4">About Me</h2>
           <div className="w-20 h-1 bg-accent mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A data science professional dedicated to transforming complex data into strategic insights, 
+            Seattle-based data science professional dedicated to transforming complex data into strategic insights, 
             bridging technical expertise with business impact.
           </p>
         </motion.div>
@@ -113,7 +116,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-primary mb-6">Recent Experience</h3>
+            <h3 className="text-2xl font-bold text-primary mb-6">Professional Experience</h3>
             <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <div key={index} className="mb-6">
@@ -137,8 +140,11 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {education.map((edu, index) => (
                 <div key={index} className="bg-gray-50 p-6 rounded-lg">
-                  <h4 className="text-lg font-bold text-primary mb-1">{edu.degree}</h4>
-                  <div className="text-gray-600 mb-2">{edu.school}</div>
+                  <h4 className="text-lg font-bold text-primary mb-1">
+                    {edu.degree}
+                    {edu.major && <span className="block text-sm text-primary/80 font-medium">{edu.major}</span>}
+                  </h4>
+                  <div className="text-gray-600">{edu.school}</div>
                 </div>
               ))}
             </div>
@@ -152,39 +158,24 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6">Areas of Expertise</h3>
+            <h3 className="text-2xl font-bold mb-6">Areas of Interest</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-accent/20 backdrop-blur-sm p-6 rounded-lg">
-                <h4 className="text-xl font-bold mb-3">Machine Learning</h4>
-                <p>Developing advanced predictive models and implementing AI-driven solutions for complex business challenges</p>
+                <h4 className="text-xl font-bold mb-3">Artificial Intelligence</h4>
+                <p>Exploring machine learning models for predictive analytics and process automation</p>
               </div>
               <div className="bg-accent/20 backdrop-blur-sm p-6 rounded-lg">
-                <h4 className="text-xl font-bold mb-3">Data Engineering</h4>
-                <p>Designing robust data pipelines and infrastructure to support scalable analytics and machine learning workflows</p>
+                <h4 className="text-xl font-bold mb-3">Fraud Analytics</h4>
+                <p>Developing pattern recognition systems to identify and prevent fraudulent activities</p>
               </div>
               <div className="bg-accent/20 backdrop-blur-sm p-6 rounded-lg">
-                <h4 className="text-xl font-bold mb-3">Strategic Analytics</h4>
-                <p>Translating complex data insights into actionable business strategies and decision-making frameworks</p>
+                <h4 className="text-xl font-bold mb-3">E-Commerce</h4>
+                <p>Optimizing customer journeys and conversion funnels through behavioral data analysis</p>
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Call to action */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <a
-            href="#contact"
-            className="inline-block py-4 px-8 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition-colors"
-          >
-            Let's Work Together
-          </a>
-        </motion.div>
       </div>
     </section>
   );
