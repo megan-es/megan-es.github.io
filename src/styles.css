@@ -3,42 +3,159 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth scrolling for navigation */
-html {
-  scroll-behavior: smooth;
+/* Apply dark mode utility to make it work with JS toggling */
+@layer base {
+  :root {
+    --scrollbar-thumb: #6c757d;
+    --scrollbar-track: #f8f9fa;
+  }
+
+  .dark {
+    --scrollbar-thumb: #495057;
+    --scrollbar-track: #212529;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #343a40;
+  }
+
+  /* Cursor styles */
+  body {
+    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='4' fill='%236c757d' fill-opacity='0.6'/%3E%3C/svg%3E"), auto;
+  }
+
+  a, button, [role="button"], input, select, textarea, [tabindex]:not([tabindex="-1"]) {
+    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='6' fill='%23495057' fill-opacity='0.8'/%3E%3C/svg%3E"), pointer;
+  }
 }
 
 /* Apply Tailwind base styles */
-body {
-  @apply bg-light text-primary;
+@layer components {
+  /* Animated underline for links */
+  .animated-underline {
+    @apply relative;
+  }
+  
+  .animated-underline::after {
+    @apply content-[''] absolute w-0 h-0.5 bg-accent left-0 -bottom-1 transition-all duration-300;
+  }
+  
+  .animated-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300;
+  }
+  
+  .card:hover {
+    @apply shadow-xl transform -translate-y-1;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply px-6 py-3 rounded-lg transition-colors duration-300 font-medium;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent/90;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary/10;
+  }
 }
 
-/* Ensures Tableau dashboard fully fits without scrolling */
-.tableau-container {
-  width: 100%;
+/* Dashboard Screenshot Styling */
+.project-image-container {
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
 }
 
-.tableau-wrapper {
+.dashboard-screenshot-link {
+  display: block;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Prevents unwanted white space */
-  background: white; /* Ensures dashboards blend with the site */
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Ensures the Tableau iframe is properly sized */
-.tableau-wrapper iframe {
+.dashboard-screenshot-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-screenshot {
   width: 100%;
   height: 100%;
-  border: none;
+  object-fit: cover;
+  object-position: top;
+  transition: opacity 0.3s ease;
 }
 
+.dashboard-screenshot:hover {
+  opacity: 0.9;
+}
+
+/* Project Swiper customizations */
+.project-swiper {
+  --swiper-theme-color: #495057;
+  --swiper-pagination-bullet-inactive-color: #adb5bd;
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+  height: auto !important;
+  min-height: 600px;
+}
+
+.project-swiper .swiper-slide {
+  height: auto !important;
+  min-height: 600px;
+}
+
+.project-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  transition: all 0.3s ease;
+}
+
+.project-swiper .swiper-pagination-bullet-active {
+  width: 20px;
+  border-radius: 5px;
+}
+
+/* Hidden Swiper navigation arrows (using custom ones) */
+.project-swiper .swiper-button-next,
+.project-swiper .swiper-button-prev {
+  display: none;
+}
 
 /* Swiper Navigation Arrows Styling */
 .swiper-button-prev-custom,
@@ -46,9 +163,232 @@ body {
   color: white;
   font-size: 1.5rem;
   transition: background 0.3s ease;
+  z-index: 10;
 }
 
 .swiper-button-prev-custom:hover,
 .swiper-button-next-custom:hover {
   background: #4a5568; /* Darker gray on hover */
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Section styling for full-width sections */
+section {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Ensure the root container takes full width and height */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* General spacing and layout */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Apply Tailwind base styles */
+body {
+  @apply bg-light text-primary w-screen min-h-screen;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contact form styling */
+.form-input {
+  @apply w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white resize-none;
+}
+
+.form-label {
+  @apply block text-sm font-medium mb-2;
+}
+
+/* Social media icons in contact section */
+.social-icon-container {
+  @apply flex items-center p-4 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors;
+}
+
+/* Fixed: removed 'group' from @apply */
+.social-icon-container {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #1f2937; /* bg-gray-800 */
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.social-icon-container:hover {
+  background-color: #374151; /* bg-gray-700 */
+}
+
+.social-icon {
+  @apply bg-gray-700 p-3 rounded-lg mr-4;
+  transition: background-color 0.3s ease;
+}
+
+.social-icon-container:hover .social-icon {
+  background-color: #495057; /* bg-accent */
+}
+
+/* Navbar styling */
+.nav-link {
+  @apply relative cursor-pointer font-medium hover:text-accent transition-colors;
+}
+
+.nav-link::after {
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  content: '';
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active {
+  @apply text-accent font-bold;
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  @apply md:hidden bg-white dark:bg-gray-800 shadow-lg overflow-hidden;
+}
+
+.mobile-menu-link {
+  @apply block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors;
+}
+
+/* Dark mode toggle */
+.dark-mode-toggle {
+  @apply bg-gray-200 dark:bg-gray-700 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-accent;
+}
+
+/* Hero section styles */
+.hero-headshot {
+  @apply w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-xl border-4 border-white relative z-10;
+}
+
+.hero-badge {
+  @apply inline-block px-3 py-1 text-sm bg-accent/10 text-accent rounded-full font-medium mb-4;
+}
+
+.hero-title {
+  @apply text-5xl md:text-7xl font-bold mb-4 text-dark;
+}
+
+.hero-description {
+  @apply text-xl md:text-2xl text-primary/90 mb-6 max-w-md;
+}
+
+.hero-button-primary {
+  @apply px-6 py-3 bg-primary text-white rounded-lg shadow-lg hover:bg-primary/90 transition-colors;
+}
+
+.hero-button-secondary {
+  @apply px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors;
+}
+
+/* About section styling */
+.skill-bar-container {
+  @apply w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700;
+}
+
+.skill-bar {
+  @apply bg-accent h-2.5 rounded-full;
+}
+
+.experience-item {
+  @apply relative pl-8 border-l-2 border-accent;
+}
+
+.experience-dot {
+  @apply absolute -left-2 top-0 w-4 h-4 rounded-full bg-accent;
+}
+
+.education-card {
+  @apply bg-gray-50 p-6 rounded-lg;
+}
+
+/* Loading screen */
+.loading-screen {
+  @apply fixed inset-0 flex items-center justify-center bg-light dark:bg-dark z-50;
+}
+
+.loading-spinner {
+  @apply w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mb-4 mx-auto;
+}
+
+/* Media queries for better responsiveness */
+@media (max-width: 768px) {
+  .project-swiper {
+    min-height: 800px;
+  }
+  
+  .project-swiper .swiper-slide {
+    min-height: 800px;
+  }
+  
+  .hero-title {
+    @apply text-4xl;
+  }
+  
+  .hero-description {
+    @apply text-lg;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-swiper {
+    min-height: 900px;
+  }
+  
+  .project-swiper .swiper-slide {
+    min-height: 900px;
+  }
+  
+  .project-image-container {
+    padding: 1rem;
+  }
+}
+
+/* Remove focus outlines and replace with custom ones */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #495057;
+  outline-offset: 2px;
 }
