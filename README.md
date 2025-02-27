@@ -2,8 +2,6 @@
 
 This is my personal portfolio website built with React and TailwindCSS to showcase my data science projects, skills, and professional experience. I created this site from scratch to highlight my work and provide a central hub for my professional presence online.
 
-![Portfolio Preview](https://via.placeholder.com/1200x630?text=Portfolio+Website+Preview)
-
 ## About This Project
 
 I wanted to create a clean, modern website that would showcase my data science work effectively. Some key features I implemented:
