@@ -69,7 +69,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <span className="inline-block px-3 py-1 text-sm bg-accent/10 text-accent rounded-full font-medium mb-4">
-                Data Analytics Professional
+                Data Science & Analytics Engineering
               </span>
             </motion.div>
             

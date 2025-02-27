@@ -30,7 +30,7 @@ const experiences = [
   {
     role: "Analytics Consultant",
     company: "Sound Credit Union",
-    description: "Designed and implemented comprehensive data solutions, creating sophisticated dashboards and analytical frameworks to drive strategic decision-making."
+    description: "Designed and implemented a predictive fraud detection model, leveraging data analytics and machine learning to mitigate risk."
   }
 ];
 
