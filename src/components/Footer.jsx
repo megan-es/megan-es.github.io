@@ -13,7 +13,7 @@ const Footer = () => {
         <p className="text-sm text-gray-400 flex items-center justify-center space-x-2">
           <span>✨</span>
           <span>
-            PS, I built this site from scratch. Curious about the code? 
+            PS, I built this site from scratch. 
             <a 
               href="https://github.com/megan-es/megan-es.github.io" 
               target="_blank" 
