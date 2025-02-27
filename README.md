@@ -87,27 +87,85 @@ colors: {
 
 ## Deployment to GitHub Pages
 
-I deployed this site to GitHub Pages. Here's how I did it:
+### Repository Naming
 
-1. First, I made sure my GitHub repository was set up
+For GitHub Pages, I used a specific repository naming pattern:
 
-2. I updated the `homepage` field in `package.json` to my domain:
+- For a user site: `username.github.io` (e.g., `megan-es.github.io`)
+- For a project site: `any-repo-name` (will be available at username.github.io/any-repo-name)
+
+Using the username.github.io format gives you a cleaner URL and sets up your repository as a special GitHub Pages user site.
+
+### Setting Up GitHub Pages Deployment
+
+1. First, I made sure my GitHub repository was properly initialized with my code
+
+2. I installed the gh-pages package to help with deployment:
+   ```bash
+   npm install --save-dev gh-pages
+   ```
+
+3. Added deployment scripts to package.json:
+   ```json
+   "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+
+4. Updated the `homepage` field in `package.json` to my domain:
    ```json
    "homepage": "https://datawithmegan.com"
    ```
+   
+   If using the default GitHub Pages domain instead of a custom domain, you would use:
+   ```json
+   "homepage": "https://username.github.io"
+   ```
 
-3. Then deployed it with:
+5. Made sure my Vite config was correctly set up in `vite.config.js`:
+   ```javascript
+   export default defineConfig({
+     plugins: [react()],
+     base: '/'  // Use '/' for custom domains or '/repo-name/' for project sites
+   })
+   ```
+
+### Deploying the Site
+
+Whenever I want to deploy new changes:
+
+1. I make sure all my changes are committed to my local git repository
+
+2. Run the deploy command:
    ```bash
    npm run deploy
    ```
+
+This does two things:
+- The `predeploy` script runs first, building the site into the `dist` folder
+- The `deploy` script then takes the contents of the `dist` folder and pushes them to a special branch called `gh-pages` on my GitHub repository
+
+GitHub automatically serves the content from this branch as my site.
+
+### What Happens Behind the Scenes
+
+When you run `npm run deploy`:
+
+1. The build process compiles all your React code into optimized static files
+2. The gh-pages package creates or updates a branch called `gh-pages` in your repository
+3. It pushes your compiled site to this branch
+4. GitHub detects changes to this branch and updates your deployed site
+
+This keeps your source code in the main branch while only deploying the compiled code to GitHub Pages.
 
 ## Setting Up My Custom Domain
 
 I bought a domain and connected it to GitHub Pages:
 
-1. In my GitHub repo settings under Pages, I added my custom domain
+1. In my GitHub repo settings under Settings > Pages, I added my custom domain (datawithmegan.com)
 
-2. For the DNS settings at my domain registrar, I added these A records:
+2. For the DNS settings at my domain registrar, I added these A records pointing to GitHub's servers:
    ```
    185.199.108.153
    185.199.109.153
@@ -115,7 +173,23 @@ I bought a domain and connected it to GitHub Pages:
    185.199.111.153
    ```
 
-3. I also added a CNAME file in the public directory with my domain name to make it persist between deployments
+3. I also added a CNAME file in the public directory with just my domain name:
+   ```
+   datawithmegan.com
+   ```
+   
+   This CNAME file is important as it persists your custom domain between deployments. Without it, GitHub might reset your custom domain settings when you deploy.
+
+4. I checked the "Enforce HTTPS" option in the GitHub Pages settings for added security
+
+## Troubleshooting
+
+Some common issues I encountered:
+
+- **Site not deploying**: Make sure your repository name matches the GitHub Pages pattern and the gh-pages package is installed
+- **Blank page on deployment**: Check that the `base` path in vite.config.js is correct
+- **Styling missing**: Verify that your build process is correctly processing CSS
+- **Custom domain not working**: Ensure DNS records are correctly set up and propagated
 
 ## Resources and Inspiration
 
@@ -124,6 +198,7 @@ Some resources I found helpful when building this:
 - [TailwindCSS documentation](https://tailwindcss.com/)
 - [Framer Motion examples](https://www.framer.com/motion/)
 - [GitHub Pages docs](https://pages.github.com/)
+- [Vite deployment guide](https://vitejs.dev/guide/static-deploy.html)
 
 ---
 
