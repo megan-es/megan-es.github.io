@@ -28,7 +28,7 @@ const projects = [
     liveLink: "https://public.tableau.com/views/RetailDashboard_17314641855110/Dashboard2"
   },
   {
-    title: "Pet Classification AI",
+    title: "Pet Classification Model",
     image: catImage,
     description: "Deep learning model that accurately classifies pet breeds from images with 95% accuracy, using transfer learning and convolutional neural networks.",
     technologies: ["Python", "TensorFlow", "Computer Vision", "Deep Learning"],
