@@ -116,7 +116,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-primary mb-6">Professional Experience</h3>
+            <h3 className="text-2xl font-bold text-primary mb-6">Recent Experience</h3>
             <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <div key={index} className="mb-6">
