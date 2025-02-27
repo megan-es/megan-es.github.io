@@ -83,26 +83,29 @@ const Projects = () => {
           }}
           className="project-swiper relative rounded-xl shadow-2xl"
         >
-          {projects.map((project, index) => (
-            <SwiperSlide key={index} className="h-full bg-gray-800 rounded-xl overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-2 h-full">
-                <div className="p-6 md:p-12 flex flex-col justify-center">
-                  <span className="text-accent text-sm font-bold tracking-wider uppercase mb-2">
-                    Project {index + 1}
-                  </span>
-                  <h3 className="text-3xl md:text-4xl font-bold mb-4">{project.title}</h3>
-                  <p className="text-gray-300 mb-6">{project.description}</p>
-                  
-                  <div className="mb-6">
-                    <h4 className="text-sm uppercase text-gray-400 mb-2">Technologies</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies?.map((tech, i) => (
-                        <span key={i} className="px-3 py-1 text-sm bg-gray-700 rounded-full">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+      {projects.map((project, index) => (
+        <SwiperSlide key={index} className="h-full bg-gray-800 rounded-xl overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 h-full">
+            <div className="p-6 md:p-12 flex flex-col justify-center">
+              {/* Remove or comment out the following span element */}
+              {/* 
+              <span className="text-accent text-sm font-bold tracking-wider uppercase mb-2">
+                Project {index + 1}
+              </span>
+              */}
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">{project.title}</h3>
+              <p className="text-gray-300 mb-6">{project.description}</p>
+              
+              <div className="mb-6">
+                <h4 className="text-sm uppercase text-gray-400 mb-2">Technologies</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies?.map((tech, i) => (
+                    <span key={i} className="px-3 py-1 text-sm bg-gray-700 rounded-full">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
                   
                   <div className="flex flex-wrap gap-4">
                     {project.codeLink && (
