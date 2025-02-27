@@ -3,20 +3,20 @@ import { motion } from "framer-motion";
 // Categorized Skills
 const skillCategories = [
   {
-    category: "Data Analysis & Visualization",
-    skills: ["Tableau", "Power BI", "Advanced Excel", "Data Storytelling"]
+    category: "Data Science & Analytics",
+    skills: ["Machine Learning", "Statistical Analysis", "Predictive Modeling", "Data Modeling"]
   },
   {
     category: "Programming & Tools",
-    skills: ["Python", "SQL", "R", "Jupyter Notebooks"]
+    skills: ["Python", "R", "SQL", "Jupyter Notebooks", "Git"]
   },
   {
-    category: "Machine Learning & Analytics",
-    skills: ["Predictive Modeling", "Statistical Analysis", "Machine Learning", "A/B Testing"]
+    category: "Business Intelligence Tools",
+    skills: ["Tableau", "Power BI", "Dashboard Design", "Data Visualization"]
   },
   {
-    category: "Business Intelligence",
-    skills: ["Dashboard Design", "Reporting", "KPI Development", "Operational Analytics"]
+    category: "Database & Infrastructure",
+    skills: ["Database Design", "ETL Processes", "Data Engineering", "Cloud Platforms"]
   }
 ];
 
@@ -25,12 +25,12 @@ const experiences = [
   {
     role: "Data Analyst",
     company: "Funko",
-    description: "Leading data analysis for e-commerce operations, driving insights that increased conversion rates by 18%."
+    description: "Leveraged advanced analytics to optimize e-commerce operations, developing predictive models that enhanced conversion rates and customer insights."
   },
   {
     role: "Analytics Consultant",
     company: "Sound Credit Union",
-    description: "Developed custom dashboards and analytical solutions to optimize financial operations and customer insights."
+    description: "Designed and implemented comprehensive data solutions, creating sophisticated dashboards and analytical frameworks to drive strategic decision-making."
   }
 ];
 
@@ -76,8 +76,8 @@ const About = () => {
           <h2 className="text-5xl font-bold text-primary mb-4">About Me</h2>
           <div className="w-20 h-1 bg-accent mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            I'm a data analytics professional who combines technical expertise with business acumen to deliver
-            actionable insights that drive decision-making.
+            A data science professional dedicated to transforming complex data into strategic insights, 
+            bridging technical expertise with business impact.
           </p>
         </motion.div>
 
@@ -116,12 +116,9 @@ const About = () => {
             <h3 className="text-2xl font-bold text-primary mb-6">Recent Experience</h3>
             <div className="space-y-8">
               {experiences.map((exp, index) => (
-                <div key={index} className="relative pl-8 border-l-2 border-accent">
-                  <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-accent"></div>
+                <div key={index} className="mb-6">
                   <h4 className="text-xl font-bold text-primary">{exp.role}</h4>
-                  <div className="flex justify-between text-sm text-gray-500 mb-2">
-                    <span>{exp.company}</span>
-                  </div>
+                  <div className="text-sm text-gray-500 mb-2">{exp.company}</div>
                   <p className="text-gray-600">{exp.description}</p>
                 </div>
               ))}
@@ -155,19 +152,19 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6">Areas of Interest</h3>
+            <h3 className="text-2xl font-bold mb-6">Areas of Expertise</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-accent/20 backdrop-blur-sm p-6 rounded-lg">
-                <h4 className="text-xl font-bold mb-3">Artificial Intelligence</h4>
-                <p>Exploring machine learning models for predictive analytics and process automation</p>
+                <h4 className="text-xl font-bold mb-3">Machine Learning</h4>
+                <p>Developing advanced predictive models and implementing AI-driven solutions for complex business challenges</p>
               </div>
               <div className="bg-accent/20 backdrop-blur-sm p-6 rounded-lg">
-                <h4 className="text-xl font-bold mb-3">Fraud Analytics</h4>
-                <p>Developing pattern recognition systems to identify and prevent fraudulent activities</p>
+                <h4 className="text-xl font-bold mb-3">Data Engineering</h4>
+                <p>Designing robust data pipelines and infrastructure to support scalable analytics and machine learning workflows</p>
               </div>
               <div className="bg-accent/20 backdrop-blur-sm p-6 rounded-lg">
-                <h4 className="text-xl font-bold mb-3">E-Commerce</h4>
-                <p>Optimizing customer journeys and conversion funnels through behavioral data analysis</p>
+                <h4 className="text-xl font-bold mb-3">Strategic Analytics</h4>
+                <p>Translating complex data insights into actionable business strategies and decision-making frameworks</p>
               </div>
             </div>
           </motion.div>
