@@ -7,7 +7,6 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 // Import images from assets folder
-// Replace these with your actual filenames
 import retailDashboardImage from "../assets/retail-dashboard.png";
 import congressDashboardImage from "../assets/congress-dashboard.png";
 import erdDiagram from "../assets/erd-diagram.png";
@@ -76,6 +75,7 @@ const Projects = () => {
           }}
           effect="fade"
           speed={800}
+          loop={true}
           autoplay={{
             delay: 10000,
             disableOnInteraction: false,
@@ -121,7 +121,7 @@ const Projects = () => {
                         href={project.liveLink} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block py-3 px-6 border-2 border-accent text-accent hover:bg-accent/10 rounded-lg transition-colors duration-300"
+                        className="inline-block py-3 px-6 bg-accent hover:bg-accent/80 rounded-lg transition-colors duration-300"
                       >
                         View Interactive Dashboard
                       </a>
