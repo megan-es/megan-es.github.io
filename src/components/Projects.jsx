@@ -18,35 +18,35 @@ const projects = [
     title: "Order Management Database",
     image: erdDiagram,
     description: "Order Management Database utilizing SQL to streamline order tracking and improve data organization. Worked with database normalization, indexing, and complex queries to optimize performance and ensure efficient data retrieval.",
-    technologies: ["SQL", "Database Design", "ERD Modeling"],
+    skills: ["SQL", "Database Design", "ERD Modeling"],
     codeLink: "https://github.com/megan-es/OrderManagementDatabase"
   },
   {
     title: "Retail Insights Dashboard",
     image: retailDashboardImage,
     description: "Comprehensive retail analytics dashboard providing actionable insights on sales trends, customer behavior, and inventory optimization.",
-    technologies: ["Tableau", "Business Intelligence", "Retail Analytics"],
+    skills: ["Tableau", "Business Intelligence", "Retail Analytics"],
     liveLink: "https://public.tableau.com/views/RetailDashboard_17314641855110/Dashboard2"
   },
   {
     title: "Pet Classification Model",
     image: catImage,
     description: "Developed a pet breed classification model using TensorFlow, trained on the Oxford-IIIT Pet Dataset to accurately identify 37 cat and dog breeds. Employed OpenCV for image preprocessing, implemented data augmentation and dropout layers to prevent overfitting, and achieved approximately 90% validation accuracy.",
-    technologies: ["Python", "TensorFlow", "Computer Vision", "Deep Learning"],
+    skills: ["Python", "TensorFlow", "Computer Vision", "Deep Learning"],
     codeLink: "https://github.com/megan-es/PetClassificationProject"
   },
   {
     title: "Congress Aging Dashboard",
     image: congressDashboardImage,
     description: "Interactive visualization of congressional age demographics over time, revealing trends and shifts in representation.",
-    technologies: ["Tableau", "Data Visualization", "Political Analysis"],
+    skills: ["Tableau", "Data Visualization", "Political Analysis"],
     liveLink: "https://public.tableau.com/views/congreesaging/Dashboard2"
   },
   {
       title: "Animal Crossing: New Horizons Analysis",
       image: animalCrossingImage,
       description: "Analyzed Animal Crossing: New Horizons gameplay data to uncover patterns in villager demographics and in-game item preferences. Developed interactive visualizations to present insights on player behavior, villager popularity trends, and game economy dynamics.",
-      technologies: ["Python", "pandas", "Data Analysis", "Matplotlib", "Statistical Modeling"],
+      skills: ["Python", "pandas", "Data Analysis", "Matplotlib", "Statistical Modeling"],
       codeLink: "https://github.com/megan-es/animal-crossing-new-horizons-project"
     }
 ];
@@ -99,9 +99,9 @@ const Projects = () => {
               <p className="text-gray-300 mb-4 text-sm md:text-base">{project.description}</p>
               
               <div className="mb-4">
-                <h4 className="text-xs uppercase text-gray-400 mb-1">Technologies</h4>
+                <h4 className="text-xs uppercase text-gray-400 mb-1">Skills</h4>
                 <div className="flex flex-wrap gap-1">
-                  {project.technologies?.map((tech, i) => (
+                  {project.skills?.map((tech, i) => (
                     <span key={i} className="px-2 py-1 text-xs bg-gray-700 rounded-full">
                       {tech}
                     </span>
