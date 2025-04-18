@@ -38,8 +38,8 @@ const projects = [
   {
     title: "Congress Aging Dashboard",
     image: congressDashboardImage,
-    description: "Interactive visualization of congressional age demographics over time, revealing trends and shifts in representation.",
-    skills: ["Tableau", "Data Visualization", "Political Analysis"],
+    description: "Interactive visualization of congressional age demographics over time, revealing trends and shifts in representation. Utilized Python pandas library for data enhancement and standardization, as well as matplotlib for exploratory data visualization.",
+    skills: ["Tableau", "Data Visualization", "Political Analysis", "Python", "matplotlib", "pandas"],
     liveLink: "https://public.tableau.com/views/congreesaging/Dashboard2"
   },
   {
