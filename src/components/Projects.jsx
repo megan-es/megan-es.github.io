@@ -53,8 +53,8 @@ const projects = [
   {
     title: "Sound Credit Union Fraud Detection Model",
     image: capstoneImage,
-    description: "Developed a machine learning model to detect and prevent fraudulent transactions for Sound Credit Union. Created a comprehensive fraud detection system that analyzes transaction patterns and customer behavior to identify potential fraud in real-time.",
-    skills: ["Machine Learning", "Python", "Data Analysis", "Financial Analytics", "Fraud Detection"],
+    description: "MSBA capstone project to develop a machine learning model for fraud detection to be used by a local client. Created a comprehensive fraud detection system that analyzes transaction patterns and customer behavior to identify potential fraud in real-time.",
+    skills: ["Machine Learning", "Python", "Apache Airflow", "Financial Analytics", "Fraud Detection", "Data Engineering"],
     posterLink: "https://bpb-us-e1.wpmucdn.com/sites.uw.edu/dist/3/652/files/2025/05/projectteam6_4474475_135433727_Showcase-2025_Poster_Team6_Sound-Credit-Union-1.pdf",
     videoLink: "https://youtu.be/zb2ljPz6heM?si=L6uh9NQgYoPGTCIG"
   }
