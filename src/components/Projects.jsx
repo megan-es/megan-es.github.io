@@ -51,7 +51,7 @@ const projects = [
       codeLink: "https://github.com/megan-es/animal-crossing-new-horizons-project"
     },
   {
-    title: "Sound Credit Union Fraud Detection Model",
+    title: "Fraud Detection Model",
     image: capstoneImage,
     description: "MSBA capstone project to develop a machine learning model for fraud detection to be used by a local client. Created a comprehensive fraud detection system that analyzes transaction patterns and customer behavior to identify potential fraud in real-time.",
     skills: ["Machine Learning", "Python", "Apache Airflow", "Financial Analytics", "Fraud Detection", "Data Engineering"],
