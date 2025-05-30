@@ -12,6 +12,7 @@ import congressDashboardImage from "../assets/congress-dashboard.png";
 import erdDiagram from "../assets/erd-diagram.png";
 import catImage from "../assets/cat-image.png";
 import animalCrossingImage from "../assets/animal-crossing.png"; // You'll need to add this image to your assets folder
+import capstoneImage from "../assets/capstone-poster.png"; // You'll need to add this image to your assets folder
 
 const projects = [
   {
@@ -48,12 +49,20 @@ const projects = [
       description: "Analyzed Animal Crossing: New Horizons gameplay data to uncover patterns in villager demographics and in-game item preferences. Developed interactive visualizations to present insights on player behavior, villager popularity trends, and game economy dynamics.",
       skills: ["Python", "pandas", "Data Analysis", "Matplotlib", "Statistical Modeling"],
       codeLink: "https://github.com/megan-es/animal-crossing-new-horizons-project"
-    }
+    },
+  {
+    title: "Sound Credit Union Fraud Detection",
+    image: capstoneImage,
+    description: "Developed a machine learning model to detect and prevent fraudulent transactions for Sound Credit Union. Created a comprehensive fraud detection system that analyzes transaction patterns and customer behavior to identify potential fraud in real-time.",
+    skills: ["Machine Learning", "Python", "Data Analysis", "Financial Analytics", "Fraud Detection"],
+    posterLink: "https://bpb-us-e1.wpmucdn.com/sites.uw.edu/dist/3/652/files/2025/05/projectteam6_4474475_135433727_Showcase-2025_Poster_Team6_Sound-Credit-Union-1.pdf",
+    videoLink: "https://youtu.be/zb2ljPz6heM?si=L6uh9NQgYoPGTCIG"
+  }
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-secondary text-white">
+    <section id="projects" className="py-12 bg-secondary text-white">
       <motion.div 
         className="container mx-auto px-4"
         initial={{ opacity: 0 }}
@@ -61,9 +70,9 @@ const Projects = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold mb-3">Projects</h2>
-          <div className="w-16 h-1 bg-accent mx-auto mb-4"></div>
+        <div className="text-center mb-6">
+          <h2 className="text-4xl font-bold mb-2">Projects</h2>
+          <div className="w-16 h-1 bg-accent mx-auto mb-3"></div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             A showcase of my analytics work, featuring interactive dashboards and data-driven solutions.
           </p>
@@ -94,15 +103,15 @@ const Projects = () => {
       {projects.map((project, index) => (
         <SwiperSlide key={index} className="h-full bg-gray-800 rounded-xl overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2 h-full">
-            <div className="p-4 md:p-8 flex flex-col justify-center">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">{project.title}</h3>
-              <p className="text-gray-300 mb-4 text-sm md:text-base">{project.description}</p>
+            <div className="p-3 md:p-6 flex flex-col justify-center">
+              <h3 className="text-xl md:text-2xl font-bold mb-2">{project.title}</h3>
+              <p className="text-gray-300 mb-3 text-sm md:text-base">{project.description}</p>
               
-              <div className="mb-4">
+              <div className="mb-3">
                 <h4 className="text-xs uppercase text-gray-400 mb-1">Skills</h4>
                 <div className="flex flex-wrap gap-1">
                   {project.skills?.map((tech, i) => (
-                    <span key={i} className="px-2 py-1 text-xs bg-gray-700 rounded-full">
+                    <span key={i} className="px-2 py-0.5 text-xs bg-gray-700 rounded-full">
                       {tech}
                     </span>
                   ))}
@@ -129,6 +138,28 @@ const Projects = () => {
                         className="inline-block py-2 px-4 text-sm bg-accent hover:bg-accent/80 rounded-lg transition-colors duration-300"
                       >
                         View Interactive Dashboard
+                      </a>
+                    )}
+
+                    {project.posterLink && (
+                      <a 
+                        href={project.posterLink} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block py-2 px-4 text-sm bg-accent hover:bg-accent/80 rounded-lg transition-colors duration-300"
+                      >
+                        View Project Poster
+                      </a>
+                    )}
+
+                    {project.videoLink && (
+                      <a 
+                        href={project.videoLink} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block py-2 px-4 text-sm bg-accent hover:bg-accent/80 rounded-lg transition-colors duration-300"
+                      >
+                        Watch Project Video
                       </a>
                     )}
                   </div>

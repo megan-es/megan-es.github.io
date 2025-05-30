@@ -91,10 +91,12 @@
 /* Dashboard Screenshot Styling */
 .project-image-container {
   height: 100%;
+  min-height: 500px;
+  max-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 0.75rem;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(4px);
 }
@@ -117,8 +119,9 @@
 .dashboard-screenshot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top;
+  max-height: 680px;
+  object-fit: contain;
+  object-position: center;
   transition: opacity 0.3s ease;
 }
 
@@ -132,12 +135,12 @@
   --swiper-pagination-bullet-inactive-color: #adb5bd;
   --swiper-pagination-bullet-inactive-opacity: 0.5;
   height: auto !important;
-  min-height: 600px;
+  min-height: 700px;
 }
 
 .project-swiper .swiper-slide {
   height: auto !important;
-  min-height: 600px;
+  min-height: 700px;
 }
 
 .project-swiper .swiper-pagination-bullet {
@@ -352,12 +355,18 @@ body {
 
 /* Media queries for better responsiveness */
 @media (max-width: 768px) {
-  .project-swiper {
-    min-height: 800px;
+  .project-swiper,
+  .project-swiper .swiper-slide {
+    min-height: 1000px;
   }
   
-  .project-swiper .swiper-slide {
-    min-height: 800px;
+  .project-image-container {
+    min-height: 550px;
+    max-height: 800px;
+  }
+  
+  .dashboard-screenshot {
+    max-height: 780px;
   }
   
   .hero-title {
@@ -370,12 +379,18 @@ body {
 }
 
 @media (max-width: 640px) {
-  .project-swiper {
-    min-height: 900px;
+  .project-swiper,
+  .project-swiper .swiper-slide {
+    min-height: 1100px;
   }
   
-  .project-swiper .swiper-slide {
-    min-height: 900px;
+  .project-image-container {
+    min-height: 600px;
+    max-height: 850px;
+  }
+  
+  .dashboard-screenshot {
+    max-height: 830px;
   }
   
   .project-image-container {
