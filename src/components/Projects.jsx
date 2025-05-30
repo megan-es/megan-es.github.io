@@ -51,7 +51,7 @@ const projects = [
       codeLink: "https://github.com/megan-es/animal-crossing-new-horizons-project"
     },
   {
-    title: "Sound Credit Union Fraud Detection",
+    title: "Sound Credit Union Fraud Detection Model",
     image: capstoneImage,
     description: "Developed a machine learning model to detect and prevent fraudulent transactions for Sound Credit Union. Created a comprehensive fraud detection system that analyzes transaction patterns and customer behavior to identify potential fraud in real-time.",
     skills: ["Machine Learning", "Python", "Data Analysis", "Financial Analytics", "Fraud Detection"],
