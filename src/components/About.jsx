@@ -23,6 +23,11 @@ const skillCategories = [
 // Experience timeline
 const experiences = [
   {
+    role: "Business Intelligence Analyst",
+    company: "T-Mobile",
+    description: "Support campaign analytics for T-Mobile Advertising Solutions, providing insights to optimize targeting strategies and measure campaign performance across digital channels."
+  },
+  {
     role: "Data Analyst",
     company: "Funko",
     description: "Leveraged advanced analytics to optimize e-commerce operations, developing predictive models that enhanced conversion rates and customer insights."
