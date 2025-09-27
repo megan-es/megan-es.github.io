@@ -182,6 +182,116 @@ I bought a domain and connected it to GitHub Pages:
 
 4. I checked the "Enforce HTTPS" option in the GitHub Pages settings for added security
 
+## Setting Up Google Analytics
+
+I integrated Google Analytics to track visitor behavior and engagement with my portfolio. Here's how I set it up:
+
+### 1. Creating a Google Analytics Account
+
+1. Go to [Google Analytics](https://analytics.google.com/) and sign in with your Google account
+2. Click "Start measuring" to create a new property
+3. Set up your account with:
+   - Account name: Your name or business name
+   - Property name: Your website name (e.g., "Portfolio Site")
+   - Reporting time zone: Your local timezone
+   - Currency: Your preferred currency
+
+### 2. Getting Your Tracking ID
+
+1. In your Google Analytics dashboard, go to **Admin** (gear icon)
+2. Under **Property**, click **Data Streams**
+3. Click **Add stream** > **Web**
+4. Enter your website URL and stream name
+5. Copy your **Measurement ID** (starts with "G-")
+
+### 3. Adding the Tracking Code
+
+I added the Google Analytics tracking code to the `<head>` section of my `index.html` file:
+
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J9DT9WEXMB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J9DT9WEXMB');
+</script>
+```
+
+**Important:** Replace `G-J9DT9WEXMB` with your actual Measurement ID.
+
+### 4. Setting Up Event Tracking
+
+I implemented custom event tracking to monitor user interactions with my portfolio:
+
+#### Project Link Tracking
+I added click tracking to all project-related buttons in `src/components/Projects.jsx`:
+
+```javascript
+const trackEvent = (action, category = 'Portfolio', label = '') => {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', action, {
+      event_category: category,
+      event_label: label
+    });
+  }
+};
+
+// Example usage on a button
+<a 
+  href={project.codeLink} 
+  onClick={() => trackEvent('click', 'Project Link', `${project.title} - View Code`)}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  View Code
+</a>
+```
+
+#### Social Link Tracking
+I track clicks on LinkedIn and GitHub links in `src/components/Contact.jsx`:
+
+```javascript
+<a 
+  href="https://www.linkedin.com/in/-megan-e-smith/" 
+  onClick={() => trackEvent('click', 'Social Link', 'LinkedIn')}
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  LinkedIn
+</a>
+```
+
+### 5. Event Categories I'm Tracking
+
+- **Project Link**: Clicks on "View Code", "View Dashboard", "View Poster", "Watch Video" buttons
+- **Project Image**: Clicks on project images
+- **Social Link**: Clicks on LinkedIn and GitHub profile links
+- **Footer Link**: Clicks on GitHub repository link
+
+### 6. Viewing Your Analytics Data
+
+1. Go to your Google Analytics dashboard
+2. Navigate to **Reports** > **Engagement** > **Events**
+3. You'll see your custom events with:
+   - **Event name**: "click"
+   - **Event category**: "Project Link", "Social Link", etc.
+   - **Event label**: Specific details like "Sound Credit Union Fraud Detection - View Poster"
+
+### 7. What This Data Tells Me
+
+- **Most popular projects**: Which projects get the most engagement
+- **User behavior**: How visitors interact with my portfolio
+- **Social engagement**: Which social platforms drive the most interest
+- **Content effectiveness**: Which project types (code vs. dashboards) are most engaging
+
+### 8. Privacy Considerations
+
+- The tracking is anonymous and doesn't collect personal information
+- Users can opt out using browser settings or ad blockers
+- I only track interactions with my portfolio content, not browsing behavior elsewhere
+
 ## Troubleshooting
 
 Some common issues I encountered:
