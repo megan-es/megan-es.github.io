@@ -1,6 +1,16 @@
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  // Google Analytics event tracking function
+  const trackEvent = (action, category = 'Contact', label = '') => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', action, {
+        event_category: category,
+        event_label: label
+      });
+    }
+  };
+
   return (
     <section id="contact" className="py-24 bg-dark text-white relative overflow-hidden">
       {/* Background elements */}
@@ -40,6 +50,7 @@ const Contact = () => {
               href="https://www.linkedin.com/in/-megan-e-smith/" 
               target="_blank" 
               rel="noopener noreferrer"
+              onClick={() => trackEvent('click', 'Social Link', 'LinkedIn')}
               className="flex items-center p-4 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors group"
             >
               <div className="bg-gray-700 p-3 rounded-lg mr-4 group-hover:bg-accent transition-colors">
@@ -59,6 +70,7 @@ const Contact = () => {
               href="https://github.com/megan-es" 
               target="_blank" 
               rel="noopener noreferrer"
+              onClick={() => trackEvent('click', 'Social Link', 'GitHub')}
               className="flex items-center p-4 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors group"
             >
               <div className="bg-gray-700 p-3 rounded-lg mr-4 group-hover:bg-accent transition-colors">

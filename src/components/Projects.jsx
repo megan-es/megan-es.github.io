@@ -61,6 +61,16 @@ const projects = [
 ];
 
 const Projects = () => {
+  // Google Analytics event tracking function
+  const trackEvent = (action, category = 'Portfolio', label = '') => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', action, {
+        event_category: category,
+        event_label: label
+      });
+    }
+  };
+
   return (
     <section id="projects" className="py-12 bg-secondary text-white">
       <motion.div 
@@ -124,6 +134,7 @@ const Projects = () => {
                         href={project.codeLink} 
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackEvent('click', 'Project Link', `${project.title} - View Code`)}
                         className="inline-block py-2 px-4 text-sm bg-accent hover:bg-accent/80 rounded-lg transition-colors duration-300"
                       >
                         View Code
@@ -135,6 +146,7 @@ const Projects = () => {
                         href={project.liveLink} 
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackEvent('click', 'Project Link', `${project.title} - View Dashboard`)}
                         className="inline-block py-2 px-4 text-sm bg-accent hover:bg-accent/80 rounded-lg transition-colors duration-300"
                       >
                         View Interactive Dashboard
@@ -146,6 +158,7 @@ const Projects = () => {
                         href={project.posterLink} 
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackEvent('click', 'Project Link', `${project.title} - View Poster`)}
                         className="inline-block py-2 px-4 text-sm bg-accent hover:bg-accent/80 rounded-lg transition-colors duration-300"
                       >
                         View Project Poster
@@ -157,6 +170,7 @@ const Projects = () => {
                         href={project.videoLink} 
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackEvent('click', 'Project Link', `${project.title} - Watch Video`)}
                         className="inline-block py-2 px-4 text-sm bg-accent hover:bg-accent/80 rounded-lg transition-colors duration-300"
                       >
                         Watch Project Video
@@ -171,6 +185,7 @@ const Projects = () => {
                       href={project.codeLink || project.liveLink} 
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackEvent('click', 'Project Image', `${project.title} - Image Click`)}
                       className="dashboard-screenshot-link"
                     >
                       <img 

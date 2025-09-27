@@ -1,6 +1,16 @@
 import { motion } from "framer-motion";
 
 const Footer = () => {
+  // Google Analytics event tracking function
+  const trackEvent = (action, category = 'Footer', label = '') => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', action, {
+        event_category: category,
+        event_label: label
+      });
+    }
+  };
+
   return (
     <footer className="bg-dark text-white py-4 border-t border-gray-800">
       <motion.div 
@@ -18,6 +28,7 @@ const Footer = () => {
               href="https://github.com/megan-es/megan-es.github.io" 
               target="_blank" 
               rel="noopener noreferrer"
+              onClick={() => trackEvent('click', 'Footer Link', 'GitHub Repository')}
               className="text-accent hover:underline ml-1"
             >
               Check out the GitHub repo
