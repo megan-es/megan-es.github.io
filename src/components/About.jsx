@@ -8,7 +8,7 @@ const skillCategories = [
   },
   {
     category: "Programming & Tools",
-    skills: ["Python", "R", "SQL", "Jupyter Notebooks", "Git"]
+    skills: ["Python", "R", "SQL", "Snowflake", "Git"]
   },
   {
     category: "Business Intelligence",
