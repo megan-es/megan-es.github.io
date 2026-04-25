@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import headshot from "../assets/megan-headshot.png";
+import headshot from "../assets/headshot-2026.png";
 
 const Hero = () => {
   return (
