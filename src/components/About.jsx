@@ -84,7 +84,7 @@ const About = () => {
           <h2 className="text-5xl font-bold text-primary mb-4">About Me</h2>
           <div className="w-20 h-1 bg-accent mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Seattle-based data science professional dedicated to transforming complex data into strategic insights, 
+            Seattle-based data professional dedicated to transforming complex data into strategic insights, 
             bridging technical expertise with business impact.
           </p>
         </motion.div>
